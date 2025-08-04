@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Copy Code yang Berfungsi</title>
+
+  <!-- Highlight.js tema terang -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+    }
+
+    .code-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    pre {
+      background-color: #eeeeee;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      font-size: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    .copy-btn:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Contoh Kode C</h2>
+
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, world!\n");
+    return 0;
+}
+    </code></pre>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      const codeEl = btn.nextElementSibling.querySelector('code');
+
+      // Ambil isi <code> dan decode HTML entities (karena pakai &lt;)
+      const textarea = document.createElement("textarea");
+      textarea.innerHTML = codeEl.innerHTML; // decode HTML
+      const plainText = textarea.value;
+
+      navigator.clipboard.writeText(plainText).then(() => {
+        btn.textContent = "Copied!";
+        setTimeout(() => btn.textContent = "Copy", 2000);
+      }).catch(err => {
+        console.error("Clipboard error:", err);
+        btn.textContent = "Gagal";
+      });
+    }
+  </script>
+
+</body>
+</html>
