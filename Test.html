@@ -24,7 +24,7 @@
 
     pre {
       background-color: #eeeeee;
-      padding: 16px;
+      padding: 6px;
       border-radius: 6px;
       overflow-x: auto;
     }
@@ -49,16 +49,38 @@
 </head>
 <body>
 
-  <h2>Contoh Kode 3</h2>
+  <h2>Contoh Kode Switch-Case</h2>
 
   <div class="code-container">
     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
     <pre><code class="language-c" id="mycode">
-#include &lt;stdio.h&gt;
-
-int main() {
-    printf("Hello, world!\n");
-    return 0;
+#include &lt;iostream&gt;
+using namespace std;
+      
+int main()
+{
+    int pilihan;
+	cout<<("Menu makan \nMasukkan angka: ");
+	cin>>pilihan;
+	
+	switch(pilihan){
+	    case 1:
+	        printf("Mie");
+	        break;
+	    case 2:
+	    
+	    case 3:
+	        printf("Nasi");
+	        break;
+	    case 4:
+	        printf("Roti ");
+	       
+	    case 5:
+	        printf("Selai");
+	        break;     
+	    default:
+            printf("Angka tidak valid! Harus antara 1-5.\n");
+	}
 }
     </code></pre>
   </div>
